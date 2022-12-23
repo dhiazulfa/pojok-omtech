@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="/images/favicon.png" />
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <!-- endinject -->
   </head>
 
@@ -47,7 +47,7 @@
                       <a href="#" class="nav-link">In the Press</a>
                     </li>
                   </ul>
-                  <ul class="navbar-top-right-menu">
+                  {{-- <ul class="navbar-top-right-menu">
                     <li class="nav-item">
                       <a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
                     </li>
@@ -57,7 +57,7 @@
                     <li class="nav-item">
                       <a href="#" class="nav-link">Sign in</a>
                     </li>
-                  </ul>
+                  </ul> --}}
                 </div>
               </div>
               <div class="navbar-bottom">
@@ -68,14 +68,7 @@
                     /></a>
                   </div>
                   <div>
-                    <button
-                      class="navbar-toggler"
-                      type="button"
-                      data-target="#navbarSupportedContent"
-                      aria-controls="navbarSupportedContent"
-                      aria-expanded="false"
-                      aria-label="Toggle navigation"
-                    >
+                    <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     <div
@@ -126,11 +119,6 @@
                     <li>
                       <a href="#">
                         <i class="mdi mdi-youtube"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="mdi mdi-twitter"></i>
                       </a>
                     </li>
                   </ul>
@@ -280,10 +268,10 @@
                 <div class="col-sm-12">
                   <div class="d-sm-flex justify-content-between align-items-center">
                     <div class="fs-14 font-weight-600">
-                      © 2020 @ <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white"> BootstrapDash</a>. All rights reserved.
+                      Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
                     </div>
                     <div class="fs-14 font-weight-600">
-                      Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
+                      © 2022 <a href="https://www.omah-ti.com/" target="_blank" class="text-white"> Omah Technology Indonesia</a>. All rights reserved.
                     </div>
                   </div>
                 </div>
