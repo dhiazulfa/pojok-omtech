@@ -11,11 +11,8 @@
     
 </div>
 <article>
-  <p> Seiring dengan perkembangan era globalisasi, dunia Teknologi Informasi dan Komunikasi juga 
-  berkembang dengan pesat. Saat ini Teknologi Informasi dan Komunikasi sudah menjadi kebutuhan 
-  primer bagi banyak kalangan. Dengan menggunakan Teknologi Informasi dan Komunikasi, suatu 
-  proses dan kegiatan dapat dilakukan dengan lebih cepat, mudah dan efisien. Oleh karena itu 
-  penguasaan terhadap perangkat teknologi komunikasi perlu diajarkan pada semua tingkatan
+  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ducimus ab quasi quis sed sapiente molestiae corporis labore fugit consequatur maxime voluptatum rem corrupti ipsa eius, debitis nihil illo beatae ex voluptatibus. Molestias id deserunt necessitatibus reprehenderit odit, tenetur exercitationem, hic nostrum, sed quaerat dolorem at est. Autem nulla ut corporis doloribus voluptatibus quod dolores expedita necessitatibus, quasi sequi ullam beatae voluptas iste esse libero
+    natus saepe ex velit iure iusto in impedit possimus. Minus dolore ipsam sequi ad libero non veritatis fugiat quo illum rem quaerat harum, aliquam dignissimos aspernatur facilis placeat ullam delectus earum doloribus eum accusantium. Rerum!
   </p>
 </article>
 @endsection
