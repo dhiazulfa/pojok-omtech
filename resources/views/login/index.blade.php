@@ -1,13 +1,6 @@
-<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Halaman Login</title>
-
+    <title>Login Admin</title>
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -31,25 +24,24 @@
     <link href="/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
+  @if(session()->has('success'))
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+      {{session('success')}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  @endif
 
-@if(session()->has('success'))
-<div class="alert alert-info alert-dismissible fade show" role="alert">
-    {{session('success')}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
-@if(session()->has('loginError'))
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{session('loginError')}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
+  @if(session()->has('loginError'))
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{session('loginError')}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  @endif
+  
 <main class="form-signin">
   <form action="/login" method="POST">
     @csrf
@@ -57,7 +49,7 @@
     <h1 class="h3 mb-3 fw-normal">Silahkan Masuk</h1>
 
     <div class="form-floating">
-      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" autofocus>
+      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address" value="{{ old('email') }}" autofocus>
       <label for="floatingInput">Email Address</label>
     </div>
     <div class="form-floating">

@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\DashboardPostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

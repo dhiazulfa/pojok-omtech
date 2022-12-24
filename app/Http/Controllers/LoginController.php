@@ -18,10 +18,10 @@ class LoginController extends Controller
     //Function login Users
     public function authenticate(Request $request){
         $credentials = $request->validate([
-            'email'=> 'required|email:dns',
+            'email'=> 'required',
             'password'=> 'required'
         ]);
-
+        // dd("Berhasil");
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
