@@ -28,9 +28,9 @@
         <header id="header">
           <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-              <div class="navbar-top">
+              {{-- <div class="navbar-top">
                 <div class="d-flex justify-content-between align-items-center">
-                  <ul class="navbar-top-left-menu">
+                  {{-- <ul class="navbar-top-left-menu">
                     <li class="nav-item">
                       <a href="pages/index-inner.html" class="nav-link">Advertise</a>
                     </li>
@@ -47,7 +47,7 @@
                       <a href="#" class="nav-link">In the Press</a>
                     </li>
                   </ul>
-                  {{-- <ul class="navbar-top-right-menu">
+                  <ul class="navbar-top-right-menu">
                     <li class="nav-item">
                       <a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
                     </li>
@@ -57,9 +57,10 @@
                     <li class="nav-item">
                       <a href="#" class="nav-link">Sign in</a>
                     </li>
-                  </ul> --}}
+                  </ul>
                 </div>
-              </div>
+              </div> --}}
+              <br>
               <div class="navbar-bottom">
                 <div class="d-flex justify-content-between align-items-center">
                   <div>

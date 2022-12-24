@@ -3,91 +3,59 @@
         <!-- partial -->
         <div class="content-wrapper">
           <div class="container">
+            
             <div class="row" data-aos="fade-up">
+             
+              @if($posts->count())
               <div class="col-xl-8 stretch-card grid-margin">
                 <div class="position-relative">
-                  <img
-                    src="/images/dashboard/banner.jpg"
-                    alt="banner"
-                    class="img-fluid"
-                  />
+                  <img src="{{asset('storage/'. $posts[0]->image)}}" alt="{{$posts[0]->category->name}}" style="height: 520px; width: 1000px;" class="img-fluid"/>
                   <div class="banner-content">
                     <div class="badge badge-danger fs-12 font-weight-bold mb-3">
-                      global news
+                      <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none text-white">{{ $posts[0]->category->name }} </a>
                     </div>
-                    <h1 class="mb-0">GLOBAL PANDEMIC</h1>
                     <h1 class="mb-2">
-                      Coronavirus Outbreak LIVE Updates: ICSE, CBSE Exams
-                      Postponed, 168 Trains
+                      <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-white">{{$posts[0]->title}}</a>
                     </h1>
+                    <p class="card-text">{{$posts[0]->excerpt}}</p>
                     <div class="fs-12">
-                      <span class="mr-2">Photo </span>10 Minutes ago
+                      {{$posts[0]->created_at->diffForHumans()}}
                     </div>
                   </div>
                 </div>
               </div>
+              
               <div class="col-xl-4 stretch-card grid-margin">
                 <div class="card bg-dark text-white">
                   <div class="card-body">
                     <h2>Latest news</h2>
-
-                    <div
-                      class="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between"
-                    >
+                    
+                    @foreach ($posts->skip(1) as $post)
+                    <div class="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
                       <div class="pr-3">
-                        <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
+                        <h5><a href="/posts/{{ $post->slug }}" class="text-decoration-none text-white"> {{$post->title}} </a></h5>
                         <div class="fs-12">
-                          <span class="mr-2">Photo </span>10 Minutes ago
+                          By. <a href="/posts?user={{$post->user->username}}" class="text-decoration-none">{{ $post->user->name }}</a>
+                            {{$post->created_at->diffForHumans()}}
                         </div>
                       </div>
                       <div class="rotate-img">
-                        <img
-                          src="/images/dashboard/home_1.jpg"
-                          alt="thumb"
-                          class="img-fluid img-lg"
-                        />
+                        <img src="{{asset('storage/'. $post->image)}}" alt="{{$post->category->name}}" class="img-fluid img-lg"/>
                       </div>
                     </div>
-
-                    <div
-                      class="d-flex border-bottom-blue pb-4 pt-4 align-items-center justify-content-between"
-                    >
-                      <div class="pr-3">
-                        <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
-                        <div class="fs-12">
-                          <span class="mr-2">Photo </span>10 Minutes ago
-                        </div>
-                      </div>
-                      <div class="rotate-img">
-                        <img
-                          src="/images/dashboard/home_2.jpg"
-                          alt="thumb"
-                          class="img-fluid img-lg"
-                        />
-                      </div>
-                    </div>
-
-                    <div
-                      class="d-flex pt-4 align-items-center justify-content-between"
-                    >
-                      <div class="pr-3">
-                        <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
-                        <div class="fs-12">
-                          <span class="mr-2">Photo </span>10 Minutes ago
-                        </div>
-                      </div>
-                      <div class="rotate-img">
-                        <img
-                          src="/images/dashboard/home_3.jpg"
-                          alt="thumb"
-                          class="img-fluid img-lg"
-                        />
-                      </div>
-                    </div>
+                    @endforeach
                   </div>
                 </div>
               </div>
+              
+              
+              @else
+              <p class="text-center fs-4">No post found.</p>
+              @endif
+
             </div>
+
+            <!-- -->
             <div class="row" data-aos="fade-up">
               <div class="col-lg-3 stretch-card grid-margin">
                 <div class="card">
