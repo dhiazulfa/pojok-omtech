@@ -64,9 +64,7 @@
               <div class="navbar-bottom">
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
-                    <a class="navbar-brand" href="#"
-                      ><img src="/images/logo.svg" alt=""
-                    /></a>
+                    <a class="navbar-brand text-white" href="#">OMAHTECH.ID</a>
                   </div>
                   <div>
                     <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -137,7 +135,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-5">
-                  <img src="/images/logo.svg" class="footer-logo" alt="" />
+                  <b><a class="navbar-brand text-white" href="#">OMAHTECH.ID</a></b>
                   <h5 class="font-weight-normal mt-4 mb-5">
                     Newspaper is your news, entertainment, music fashion website. We
                     provide you with the latest breaking news and videos straight from
@@ -152,11 +150,6 @@
                     <li>
                       <a href="#">
                         <i class="mdi mdi-youtube"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="mdi mdi-twitter"></i>
                       </a>
                     </li>
                   </ul>

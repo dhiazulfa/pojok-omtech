@@ -38,6 +38,9 @@
                           By. <a href="/posts?user={{$post->user->username}}" class="text-decoration-none">{{ $post->user->name }}</a>
                             {{$post->created_at->diffForHumans()}}
                         </div>
+                        <div class="badge badge-danger fs-12 font-weight-bold mb-3">
+                          <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }} </a>
+                        </div>
                       </div>
                       <div class="rotate-img">
                         <img src="{{asset('storage/'. $post->image)}}" alt="{{$post->category->name}}" class="img-fluid img-lg"/>
