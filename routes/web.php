@@ -9,10 +9,12 @@ use App\Models\Category;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\VideoController;
 
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardVideoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,6 +57,11 @@ Route::get('/categories', function() {
 //Route Dashboard Post
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])
+->middleware('auth');
+
+//Route Dashboard Videos
+Route::resource('/dashboard/videos', DashboardVideoController::class)->middleware('auth');
+Route::get('/dashboard/videos/checkSlug', [DashboardVideoController::class, 'checkSlug'])
 ->middleware('auth');
 
 //Route Category Controller
