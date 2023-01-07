@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Video;
 use App\Models\Category;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -19,7 +20,7 @@ class DashboardVideoController extends Controller
     public function index()
     {
         return view('dashboard.videos.index', [
-            'videos' => Videos::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->get()
+            'videos' => Video::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->get()
         ]);
     }
 
@@ -47,14 +48,14 @@ class DashboardVideoController extends Controller
           'title' => 'required | max:255',
           'slug' => 'required | unique:videos',
           'category_id' => 'required',
-          'videos' => 'required',
+          'video' => 'required',
           'body' => 'required'
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 100);
 
-        Post::create($validatedData);
+        Video::create($validatedData);
         return redirect('/dashboard/videos')->with('success', 'New Videos has been added!');
     }
 
@@ -66,7 +67,7 @@ class DashboardVideoController extends Controller
      */
     public function show(Video $video)
     {
-      return view('dashboard.video.show', [
+      return view('dashboard.videos.show', [
         'video'=> $video
     ]);
     }
@@ -97,12 +98,12 @@ class DashboardVideoController extends Controller
         $rules = [
           'title' => 'required | max:255',
           'category_id' => 'required',
-          'videos' => 'required',
+          'video' => 'required',
           'body' => 'required'
         ];
 
           //validasi slug
-        if($request->slug != $post->slug ){
+        if($request->slug != $video->slug ){
           $rules['slug'] = 'required|unique:videos';
         }
 
