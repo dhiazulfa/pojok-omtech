@@ -28,9 +28,9 @@
         <header id="header">
           <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-              <div class="navbar-top">
+              {{-- <div class="navbar-top">
                 <div class="d-flex justify-content-between align-items-center">
-                  <ul class="navbar-top-left-menu">
+                  {{-- <ul class="navbar-top-left-menu">
                     <li class="nav-item">
                       <a href="pages/index-inner.html" class="nav-link">Advertise</a>
                     </li>
@@ -47,7 +47,7 @@
                       <a href="#" class="nav-link">In the Press</a>
                     </li>
                   </ul>
-                  {{-- <ul class="navbar-top-right-menu">
+                  <ul class="navbar-top-right-menu">
                     <li class="nav-item">
                       <a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
                     </li>
@@ -57,15 +57,14 @@
                     <li class="nav-item">
                       <a href="#" class="nav-link">Sign in</a>
                     </li>
-                  </ul> --}}
+                  </ul>
                 </div>
-              </div>
+              </div> --}}
+              <br>
               <div class="navbar-bottom">
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
-                    <a class="navbar-brand" href="#"
-                      ><img src="/images/logo.svg" alt=""
-                    /></a>
+                    <a class="navbar-brand text-white" href="#">OMAHTECH.ID</a>
                   </div>
                   <div>
                     <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -136,7 +135,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-5">
-                  <img src="/images/logo.svg" class="footer-logo" alt="" />
+                  <b><a class="navbar-brand text-white" href="#">OMAHTECH.ID</a></b>
                   <h5 class="font-weight-normal mt-4 mb-5">
                     Newspaper is your news, entertainment, music fashion website. We
                     provide you with the latest breaking news and videos straight from
@@ -151,11 +150,6 @@
                     <li>
                       <a href="#">
                         <i class="mdi mdi-youtube"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="mdi mdi-twitter"></i>
                       </a>
                     </li>
                   </ul>
@@ -268,7 +262,7 @@
                 <div class="col-sm-12">
                   <div class="d-sm-flex justify-content-between align-items-center">
                     <div class="fs-14 font-weight-600">
-                      Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
+                      {{-- Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a> --}}
                     </div>
                     <div class="fs-14 font-weight-600">
                       © 2022 <a href="https://www.omah-ti.com/" target="_blank" class="text-white"> Omah Technology Indonesia</a>. All rights reserved.

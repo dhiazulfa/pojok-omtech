@@ -3,209 +3,119 @@
         <!-- partial -->
         <div class="content-wrapper">
           <div class="container">
+            
             <div class="row" data-aos="fade-up">
+             
+              @if($posts->count())
               <div class="col-xl-8 stretch-card grid-margin">
                 <div class="position-relative">
-                  <img
-                    src="/images/dashboard/banner.jpg"
-                    alt="banner"
-                    class="img-fluid"
-                  />
+                  <img src="{{asset('storage/'. $posts[0]->image)}}" alt="{{$posts[0]->category->name}}" style="height: 520px; width: 1000px;" class="img-fluid"/>
                   <div class="banner-content">
                     <div class="badge badge-danger fs-12 font-weight-bold mb-3">
-                      global news
+                      <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none text-white">{{ $posts[0]->category->name }} </a>
                     </div>
-                    <h1 class="mb-0">GLOBAL PANDEMIC</h1>
                     <h1 class="mb-2">
-                      Coronavirus Outbreak LIVE Updates: ICSE, CBSE Exams
-                      Postponed, 168 Trains
+                      <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-white">{{$posts[0]->title}}</a>
                     </h1>
+                    <p class="card-text">{{$posts[0]->excerpt}}</p>
                     <div class="fs-12">
-                      <span class="mr-2">Photo </span>10 Minutes ago
+                      {{$posts[0]->created_at->diffForHumans()}}
                     </div>
                   </div>
                 </div>
               </div>
+              
               <div class="col-xl-4 stretch-card grid-margin">
                 <div class="card bg-dark text-white">
                   <div class="card-body">
                     <h2>Latest news</h2>
-
-                    <div
-                      class="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between"
-                    >
+                    
+                    @foreach ($posts->skip(1) as $post)
+                    <div class="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
                       <div class="pr-3">
-                        <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
+                        <h5><a href="/posts/{{ $post->slug }}" class="text-decoration-none text-white"> {{$post->title}} </a></h5>
                         <div class="fs-12">
-                          <span class="mr-2">Photo </span>10 Minutes ago
+                          By. <a href="/posts?user={{$post->user->username}}" class="text-decoration-none">{{ $post->user->name }}</a>
+                            {{$post->created_at->diffForHumans()}}
+                        </div>
+                        <div class="badge badge-danger fs-12 font-weight-bold mb-3">
+                          <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }} </a>
                         </div>
                       </div>
                       <div class="rotate-img">
-                        <img
-                          src="/images/dashboard/home_1.jpg"
-                          alt="thumb"
-                          class="img-fluid img-lg"
-                        />
+                        <img src="{{asset('storage/'. $post->image)}}" alt="{{$post->category->name}}" class="img-fluid img-lg"/>
                       </div>
                     </div>
-
-                    <div
-                      class="d-flex border-bottom-blue pb-4 pt-4 align-items-center justify-content-between"
-                    >
-                      <div class="pr-3">
-                        <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
-                        <div class="fs-12">
-                          <span class="mr-2">Photo </span>10 Minutes ago
-                        </div>
-                      </div>
-                      <div class="rotate-img">
-                        <img
-                          src="/images/dashboard/home_2.jpg"
-                          alt="thumb"
-                          class="img-fluid img-lg"
-                        />
-                      </div>
-                    </div>
-
-                    <div
-                      class="d-flex pt-4 align-items-center justify-content-between"
-                    >
-                      <div class="pr-3">
-                        <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
-                        <div class="fs-12">
-                          <span class="mr-2">Photo </span>10 Minutes ago
-                        </div>
-                      </div>
-                      <div class="rotate-img">
-                        <img
-                          src="/images/dashboard/home_3.jpg"
-                          alt="thumb"
-                          class="img-fluid img-lg"
-                        />
-                      </div>
-                    </div>
+                    @endforeach
                   </div>
                 </div>
               </div>
+              
+              
+              @else
+              <p class="text-center fs-4">No post found.</p>
+              @endif
+
             </div>
+
+            <!-- section flash news-->
             <div class="row" data-aos="fade-up">
+              <div class="col-lg-9 stretch-card grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h2>Another News</h2>
+                        <br>
+                        @if($posts2->count())
+                          @foreach ($posts2->skip(4) as $post)
+                          <div class="row">
+                            <div class="col-sm-4 grid-margin">
+                              <div class="position-relative">
+                                <div class="rotate-img">
+                                  <img src="{{asset('storage/'. $post->image)}}" alt="{{$post->category->name}}" alt="thumb" class="img-fluid"/>
+                                </div>
+                                <div class="badge badge-danger fs-12 font-weight-bold mb-3">
+                                  <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }} </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-8  grid-margin">
+                              <h2 class="mb-2 font-weight-600">
+                                <a href="/posts/{{ $post->slug }}" class="text-decoration-none"> {{$post->title}} </a>
+                              </h2>
+                              <div class="fs-13 mb-2">
+                                By. <a href="/posts?user={{$post->user->username}}" class="text-decoration-none">{{ $post->user->name }}</a>
+                                {{$post->created_at->diffForHumans()}}
+                              </div>
+                              <p class="mb-0">
+                                {{$post->excerpt}}
+                              </p>
+                            </div>
+                          </div>
+                          @endforeach
+                        {{-- <div class="d-flex justify-content-center">
+                          {{$posts->links()}}
+                        </div> --}}
+                        @else
+                          <p class="text-center fs-4">No post found.</p>
+                        @endif
+                      </div>
+                    </div>
+              </div>
+
+              <!-- end section -->
+
+              <!-- Category section -->
               <div class="col-lg-3 stretch-card grid-margin">
                 <div class="card">
                   <div class="card-body">
                     <h2>Category</h2>
                     <ul class="vertical-menu">
-                      <li><a href="#">Politics</a></li>
-                      <li><a href="#">International</a></li>
-                      <li><a href="#">Finance</a></li>
-                      <li><a href="#">Health care</a></li>
-                      <li><a href="#">Technology</a></li>
-                      <li><a href="#">Jobs</a></li>
-                      <li><a href="#">Media</a></li>
-                      <li><a href="#">Administration</a></li>
-                      <li><a href="#">Sports</a></li>
-                      <li><a href="#">Game</a></li>
-                      <li><a href="#">Art</a></li>
-                      <li><a href="#">Kids</a></li>
+                      @if($categories->count())
+                        @foreach($categories as $category)
+                          <li><a href="/categories/{{ $category->slug }}">{{ $category->name }}</a></li>
+                        @endforeach
+                      @endif
                     </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-9 stretch-card grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-sm-4 grid-margin">
-                        <div class="position-relative">
-                          <div class="rotate-img">
-                            <img
-                              src="/images/dashboard/home_4.jpg"
-                              alt="thumb"
-                              class="img-fluid"
-                            />
-                          </div>
-                          <div class="badge-positioned">
-                            <span class="badge badge-danger font-weight-bold"
-                              >Flash news</span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-8  grid-margin">
-                        <h2 class="mb-2 font-weight-600">
-                          South Korea’s Moon Jae-in sworn in vowing to address
-                          North
-                        </h2>
-                        <div class="fs-13 mb-2">
-                          <span class="mr-2">Photo </span>10 Minutes ago
-                        </div>
-                        <p class="mb-0">
-                          Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-4 grid-margin">
-                        <div class="position-relative">
-                          <div class="rotate-img">
-                            <img
-                              src="/images/dashboard/home_5.jpg"
-                              alt="thumb"
-                              class="img-fluid"
-                            />
-                          </div>
-                          <div class="badge-positioned">
-                            <span class="badge badge-danger font-weight-bold"
-                              >Flash news</span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-8  grid-margin">
-                        <h2 class="mb-2 font-weight-600">
-                          No charges over 2017 Conservative battle bus cases
-                        </h2>
-                        <div class="fs-13 mb-2">
-                          <span class="mr-2">Photo </span>10 Minutes ago
-                        </div>
-                        <p class="mb-0">
-                          Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <div class="position-relative">
-                          <div class="rotate-img">
-                            <img
-                              src="/images/dashboard/home_6.jpg"
-                              alt="thumb"
-                              class="img-fluid"
-                            />
-                          </div>
-                          <div class="badge-positioned">
-                            <span class="badge badge-danger font-weight-bold"
-                              >Flash news</span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-8">
-                        <h2 class="mb-2 font-weight-600">
-                          Kaine: Trump Jr. may have committed treason
-                        </h2>
-                        <div class="fs-13 mb-2">
-                          <span class="mr-2">Photo </span>10 Minutes ago
-                        </div>
-                        <p class="mb-0">
-                          Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

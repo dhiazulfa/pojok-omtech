@@ -66,7 +66,7 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(category $category)
     {
         return view('dashboard.categories.edit', [
           'category' => $category
@@ -80,7 +80,7 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,category $category)
     {
         $rules = [
           'name' => 'required | max:255'
@@ -103,7 +103,7 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(category $category)
     {
       Category::destroy($category->id);
       return redirect('/dashboard/categories')->with('success', 'Category has been deleted!');
