@@ -262,7 +262,7 @@
                 <div class="col-sm-12">
                   <div class="d-sm-flex justify-content-between align-items-center">
                     <div class="fs-14 font-weight-600">
-                      Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
+                      {{-- Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a> --}}
                     </div>
                     <div class="fs-14 font-weight-600">
                       © 2022 <a href="https://www.omah-ti.com/" target="_blank" class="text-white"> Omah Technology Indonesia</a>. All rights reserved.

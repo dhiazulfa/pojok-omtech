@@ -16,9 +16,10 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Action</th>
+              <th>Judul</th>
+              <th>Published At</th>
+              <th>Kategori Berita</th>
+              <th>Pilihan</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +27,7 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $post->title}}</td>
+                <td>{{$post->created_at}}</td>
                 <td>{{ $post->category->name}}</td>
                 <td>
                     <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-success"><span data-feather="eye"></span></a>

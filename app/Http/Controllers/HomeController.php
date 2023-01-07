@@ -29,7 +29,9 @@ class HomeController extends Controller
         return view('index', [
             "title" => "Berita Terkini" . $title,
             "active" => "home",
-            "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(4)->withQueryString()
+            "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(4)->withQueryString(),
+            "posts2" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(8)->withQueryString(),
+            "categories" => Category::all(),
         ]);
     }
 }
