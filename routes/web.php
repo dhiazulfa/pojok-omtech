@@ -3,16 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
+use App\Models\Video;
 use App\Models\User;
 use App\Models\Category;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\VideoController;
 
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ChartJSController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardVideoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,10 +41,17 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
+//route for video
+Route::get('/videos', [VideoController::class, 'index']);
+Route::get('videos/{video:slug}', [VideoController::class, 'show']);
+
 //Dashboard Admin
 Route::get('/dashboard', function(){
   return view('dashboard.index');
 })->middleware('auth');
+
+//Chart Dashboard Admin
+Route::get('/dashboard', [ChartJSController::class, 'index'])->middleware('auth');
 
 //Route Kategori Berita
 Route::get('/categories', function() {
@@ -55,6 +66,11 @@ Route::get('/categories', function() {
 //Route Dashboard Post
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])
+->middleware('auth');
+
+//Route Dashboard Videos
+Route::resource('/dashboard/videos', DashboardVideoController::class)->middleware('auth');
+Route::get('/dashboard/videos/checkSlug', [DashboardVideoController::class, 'checkSlug'])
 ->middleware('auth');
 
 //Route Category Controller

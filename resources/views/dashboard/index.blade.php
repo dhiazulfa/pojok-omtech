@@ -10,9 +10,40 @@
     <h1 class="h2">Welcome, {{auth()->user()->name}}</h1>
     
 </div>
-<article>
-  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ducimus ab quasi quis sed sapiente molestiae corporis labore fugit consequatur maxime voluptatum rem corrupti ipsa eius, debitis nihil illo beatae ex voluptatibus. Molestias id deserunt necessitatibus reprehenderit odit, tenetur exercitationem, hic nostrum, sed quaerat dolorem at est. Autem nulla ut corporis doloribus voluptatibus quod dolores expedita necessitatibus, quasi sequi ullam beatae voluptas iste esse libero
-    natus saepe ex velit iure iusto in impedit possimus. Minus dolore ipsam sequi ad libero non veritatis fugiat quo illum rem quaerat harum, aliquam dignissimos aspernatur facilis placeat ullam delectus earum doloribus eum accusantium. Rerum!
-  </p>
-</article>
+
+  {{-- <h5>Post Chart per Month</h5> --}}
+  <br>
+  <canvas id="myChart" height="100px"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script type="text/javascript">
+    
+        var labels =  {{ Js::from($labels) }};
+        var posts =  {{ Js::from($data) }};
+    
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'Post per Month',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: posts,
+          }]
+        };
+    
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+    
+        const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+    
+  </script>
+
 @endsection

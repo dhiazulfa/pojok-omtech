@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Post;
+use App\Models\Video;
 use App\Models\User;
 use App\Models\Category;
 
-class PostController extends Controller
+class VideoController extends Controller
 {
     public function index()
     {  
@@ -24,17 +24,18 @@ class PostController extends Controller
             $title = ' by ' . $user->name;
         }
 
-        return view('posts', [
-            "active" => 'posts',
-            "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(10)->withQueryString()
+        return view('videos', [
+            "title" => "All Videos" . $title,
+            "active" => 'videos',
+            "videos" => Videos::latest()->filter(request(['search', 'category', 'user']))->paginate(3)->withQueryString()
         ]);
     }
 
-    public function show(Post $post){
-        return view('post',[
-            "title" => "Single Post",
-            "active" => 'posts',
-            "post" => $post 
+    public function show(Video $video){
+        return view('video',[
+            "title" => "Single Video",
+            "active" => 'videos',
+            "video" => $video 
         ]);
     }
 }

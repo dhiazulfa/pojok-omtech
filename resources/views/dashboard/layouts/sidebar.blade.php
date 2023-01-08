@@ -31,12 +31,12 @@
 
         <ul class="nav flex-column">
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link {{ Request::is('dashboard/data-user*') ? 'active' : '' }}" href="/dashboard/data-user">
                   <span data-feather="user"></span>
                   Users Data
               </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
               <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">

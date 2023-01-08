@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Package;
+use App\Models\Video;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Home;
@@ -31,6 +31,9 @@ class HomeController extends Controller
             "active" => "home",
             "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(4)->withQueryString(),
             "posts2" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(8)->withQueryString(),
+            
+            "videos" => Video::latest()->filter(request(['search', 'category', 'user']))->paginate(4)->withQueryString(),
+            "videos_latest" => Video::latest()->filter(request(['search', 'category', 'user']))->paginate(8)->withQueryString(),
             "categories" => Category::all(),
         ]);
     }

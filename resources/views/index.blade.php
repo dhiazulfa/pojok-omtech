@@ -98,6 +98,7 @@
                         @else
                           <p class="text-center fs-4">No post found.</p>
                         @endif
+                        <p class="mb-3"> <a href="/posts">Lihat Semua</a></p>
                       </div>
                     </div>
               </div>
@@ -112,14 +113,16 @@
                     <ul class="vertical-menu">
                       @if($categories->count())
                         @foreach($categories as $category)
-                          <li><a href="/categories/{{ $category->slug }}">{{ $category->name }}</a></li>
+                          <li><a href="/posts?category={{ $category->slug }}">{{ $category->name }}</a></li>
                         @endforeach
                       @endif
                     </ul>
                   </div>
                 </div>
               </div>
+              <!-- end category -->
             </div>
+
             <div class="row" data-aos="fade-up">
               <div class="col-sm-12 grid-margin">
                 <div class="card">
@@ -129,205 +132,53 @@
                         <div class="card-title">
                           Video
                         </div>
-                        <div class="row">
-                          <div class="col-sm-6 grid-margin">
-                            <div class="position-relative">
-                              <div class="rotate-img">
-                                <img
-                                  src="/images/dashboard/home_7.jpg"
-                                  alt="thumb"
-                                  class="img-fluid"
-                                />
-                              </div>
-                              <div class="badge-positioned w-90">
-                                <div
-                                  class="d-flex justify-content-between align-items-center"
-                                >
-                                  <span
-                                    class="badge badge-danger font-weight-bold"
-                                    >Lifestyle</span
-                                  >
-                                  <div class="video-icon">
-                                    <i class="mdi mdi-play"></i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
 
-                          <div class="col-sm-6 grid-margin">
-                            <div class="position-relative">
-                              <div class="rotate-img">
-                                <img
-                                  src="/images/dashboard/home_8.jpg"
-                                  alt="thumb"
-                                  class="img-fluid"
-                                />
-                              </div>
-                              <div class="badge-positioned w-90">
-                                <div
-                                  class="d-flex justify-content-between align-items-center"
-                                >
-                                  <span
-                                    class="badge badge-danger font-weight-bold"
-                                    >National News</span
-                                  >
-                                  <div class="video-icon">
-                                    <i class="mdi mdi-play"></i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                         <div class="row">
+                          @if($videos->count())
+                          @foreach($videos as $video)
                           <div class="col-sm-6 grid-margin">
                             <div class="position-relative">
-                              <div class="rotate-img">
-                                <img
-                                  src="/images/dashboard/home_9.jpg"
-                                  alt="thumb"
-                                  class="img-fluid"
-                                />
-                              </div>
-                              <div class="badge-positioned w-90">
-                                <div
-                                  class="d-flex justify-content-between align-items-center"
-                                >
-                                  <span
-                                    class="badge badge-danger font-weight-bold"
-                                    >Lifestyle</span
-                                  >
-                                  <div class="video-icon">
-                                    <i class="mdi mdi-play"></i>
-                                  </div>
-                                </div>
+                              <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="{{ $video->video }}"></iframe>
                               </div>
                             </div>
+                            <h3 class="font-weight-600 mb-0">
+                              <a href="/videos/{{ $video->slug }}" class="text-decoration-none"> {{$video->title}} </a>
+                            </h3>
                           </div>
-
-                          <div class="col-sm-6 grid-margin">
-                            <div class="position-relative">
-                              <div class="rotate-img">
-                                <img
-                                  src="/images/dashboard/home_10.jpg"
-                                  alt="thumb"
-                                  class="img-fluid"
-                                />
-                              </div>
-                              <div class="badge-positioned w-90">
-                                <div
-                                  class="d-flex justify-content-between align-items-center"
-                                >
-                                  <span
-                                    class="badge badge-danger font-weight-bold"
-                                    >National News</span
-                                  >
-                                  <div class="video-icon">
-                                    <i class="mdi mdi-play"></i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          @endforeach
+                          @endif
                         </div>
                       </div>
+
                       <div class="col-lg-4">
-                        <div
-                          class="d-flex justify-content-between align-items-center"
-                        >
+                        <div class="d-flex justify-content-between align-items-center">
                           <div class="card-title">
                             Latest Video
                           </div>
                           <p class="mb-3">See all</p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center border-bottom pb-2"
-                        >
-                          <div class="div-w-80 mr-3">
-                            <div class="rotate-img">
-                              <img
-                                src="/images/dashboard/home_11.jpg"
-                                alt="thumb"
-                                class="img-fluid"
-                              />
-                            </div>
-                          </div>
+                        
+                        @if($videos_latest->count())
+                        @foreach($videos_latest as $video)
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 div-w-80 mr-3">
+                          <img src="{{asset('storage/'. $video->image)}}" alt="{{$video->category->name}}" alt="thumb" class="img-fluid"/>
+                          <p class='mr-2'>
                           <h3 class="font-weight-600 mb-0">
-                            Apple Introduces Apple Watch
+                            <a href="/videos/{{ $video->slug }}" class="text-decoration-none"> {{$video->title}} </a>
                           </h3>
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center border-bottom pt-3 pb-2"
-                        >
-                          <div class="div-w-80 mr-3">
-                            <div class="rotate-img">
-                              <img
-                                src="/images/dashboard/home_12.jpg"
-                                alt="thumb"
-                                class="img-fluid"
-                              />
-                            </div>
-                          </div>
-                          <h3 class="font-weight-600 mb-0">
-                            SEO Strategy & Google Search
-                          </h3>
-                        </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center border-bottom pt-3 pb-2"
-                        >
-                          <div class="div-w-80 mr-3">
-                            <div class="rotate-img">
-                              <img
-                                src="/images/dashboard/home_13.jpg"
-                                alt="thumb"
-                                class="img-fluid"
-                              />
-                            </div>
-                          </div>
-                          <h3 class="font-weight-600 mb-0">
-                            Cycling benefit & disadvantag
-                          </h3>
-                        </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center border-bottom pt-3 pb-2"
-                        >
-                          <div class="div-w-80 mr-3">
-                            <div class="rotate-img">
-                              <img
-                                src="/images/dashboard/home_14.jpg"
-                                alt="thumb"
-                                class="img-fluid"
-                              />
-                            </div>
-                          </div>
-                          <h3 class="font-weight-600">
-                            The Major Health Benefits of
-                          </h3>
-                        </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center pt-3"
-                        >
-                          <div class="div-w-80 mr-3">
-                            <div class="rotate-img">
-                              <img
-                                src="/images/dashboard/home_15.jpg"
-                                alt="thumb"
-                                class="img-fluid"
-                              />
-                            </div>
-                          </div>
-                          <h3 class="font-weight-600 mb-0">
-                            Powerful Moments of Peace
-                          </h3>
-                        </div>
+                        @endforeach
+                        @endif
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row" data-aos="fade-up">
+
+            {{-- <div class="row" data-aos="fade-up">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-body">
@@ -572,7 +423,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
         <!-- main-panel ends -->

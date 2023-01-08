@@ -17,8 +17,8 @@ class Category extends Model
         return $this->hasMany(Post::class);
     }
 
-    public function packages(){
-        return $this->hasMany(Package::class);
+    public function videos(){
+        return $this->hasMany(Video::class);
     }
     
     public function getRouteKeyName(){
