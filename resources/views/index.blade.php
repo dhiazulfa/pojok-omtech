@@ -143,7 +143,7 @@
                               </div>
                             </div>
                             <h3 class="font-weight-600 mb-0">
-                              <a href="/videos/{{ $video->slug }}" class="text-decoration-none"> {{$video->title}} </a>
+                              <a href="/videos/{{ $video->slug }}" class="text-decoration-none text-dark"> {{$video->title}} </a>
                             </h3>
                           </div>
                           @endforeach
@@ -156,21 +156,29 @@
                           <div class="card-title">
                             Latest Video
                           </div>
-                          <p class="mb-3">See all</p>
+                          <p class="mb-3"> <a href="/videos" class="text-decoration-none text-dark">  See all </a></p>
                         </div>
                         
                         @if($videos_latest->count())
                         @foreach($videos_latest as $video)
-                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 div-w-80 mr-3">
-                          <img src="{{asset('storage/'. $video->image)}}" alt="{{$video->category->name}}" alt="thumb" class="img-fluid"/>
-                          <p class='mr-2'>
-                          <h3 class="font-weight-600 mb-0">
-                            <a href="/videos/{{ $video->slug }}" class="text-decoration-none"> {{$video->title}} </a>
-                          </h3>
-                          </p>
+                        <div class="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
+                          <div class="pr-3">
+                            <h4 class="font-weight-600"><a href="/videos/{{ $video->slug }}" class="text-decoration-none text-dark"> {{$video->title}} </a></h4>
+                            <div class="fs-12">
+                              By. <a href="/videos?user={{$video->user->username}}" class="text-decoration-none">{{ $video->user->name }}</a>
+                                {{$post->created_at->diffForHumans()}}
+                            </div>
+                            <div class="badge badge-danger fs-12 font-weight-bold mb-3">
+                              <a href="/videos?category={{ $video->category->slug }}" class="text-decoration-none text-white">{{ $video->category->name }} </a>
+                            </div>
+                          </div>
+                          <div class="img">
+                            <img src="{{asset('storage/'. $video->image)}}" alt="{{$video->category->name}}" style="width:150px;height:100px;"/>
+                          </div>
                         </div>
                         @endforeach
                         @endif
+
                       </div>
                     </div>
                   </div>

@@ -31,9 +31,9 @@ class HomeController extends Controller
             "active" => "home",
             "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(4)->withQueryString(),
             "posts2" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(8)->withQueryString(),
-            
+
             "videos" => Video::latest()->filter(request(['search', 'category', 'user']))->paginate(4)->withQueryString(),
-            "videos_latest" => Video::latest()->filter(request(['search', 'category', 'user']))->paginate(8)->withQueryString(),
+            "videos_latest" => Video::latest()->filter(request(['search', 'category', 'user']))->paginate(5)->withQueryString(),
             "categories" => Category::all(),
         ]);
     }

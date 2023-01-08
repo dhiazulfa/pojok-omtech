@@ -27,7 +27,7 @@ class VideoController extends Controller
         return view('videos', [
             "title" => "All Videos" . $title,
             "active" => 'videos',
-            "videos" => Videos::latest()->filter(request(['search', 'category', 'user']))->paginate(3)->withQueryString()
+            "videos" => Video::latest()->filter(request(['search', 'category', 'user']))->paginate(3)->withQueryString()
         ]);
     }
 
