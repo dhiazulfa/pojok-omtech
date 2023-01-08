@@ -83,28 +83,25 @@
                           </button>
                         </li>
                         <li class="nav-item active">
-                          <a class="nav-link" href="index.html">Home</a>
+                          <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/magazine.html">MAGAZINE</a>
+                          <a class="nav-link" href="/posts?category=magazine">MAGAZINE</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/business.html">Business</a>
+                          <a class="nav-link" href="/posts?category=politik">Politics</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/sports.html">Sports</a>
+                          <a class="nav-link" href="/posts?category=lifestyle">Lifestyle</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/art.html">Art</a>
+                          <a class="nav-link" href="/posts?category=edukasi">Education</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/politics.html">POLITICS</a>
+                          <a class="nav-link" href="/posts?category=travel">Travel</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/travel.html">Travel</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="pages/contactus.html">Contact</a>
+                          <a class="nav-link" href="#">Contact</a>
                         </li>
                       </ul>
                     </div>
@@ -116,7 +113,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="https://www.youtube.com/@akademidigitalomahtech6825" target="_blank">
                         <i class="mdi mdi-youtube"></i>
                       </a>
                     </li>
@@ -148,13 +145,14 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="https://www.youtube.com/@akademidigitalomahtech6825" target='_blank'>
                         <i class="mdi mdi-youtube"></i>
                       </a>
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-4">
+
+                {{-- <div class="col-sm-4">
                   <h3 class="font-weight-bold mb-3">RECENT POSTS</h3>
                   <div class="row">
                     <div class="col-sm-12">
@@ -219,8 +217,9 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-3">
+                </div> --}}
+
+                {{-- <div class="col-sm-3">
                   <h3 class="font-weight-bold mb-3">CATEGORIES</h3>
                   <div class="footer-border-bottom pb-2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -252,7 +251,7 @@
                       <div class="count">1</div>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>

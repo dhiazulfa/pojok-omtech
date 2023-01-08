@@ -11,7 +11,7 @@ class Video extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
-    protected $fillable = ['title', 'user_id', 'category_id', 'video','slug','excerpt', 'body','publish_at'];
+    protected $fillable = ['title', 'user_id', 'category_id', 'video', 'image','slug','excerpt', 'body','publish_at'];
     protected $with = ['category', 'user'];
 
     public function scopeFilter($query, array $filters){

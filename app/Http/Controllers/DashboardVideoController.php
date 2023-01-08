@@ -48,9 +48,14 @@ class DashboardVideoController extends Controller
           'title' => 'required | max:255',
           'slug' => 'required | unique:videos',
           'category_id' => 'required',
+          'image' => 'image|file|max:10000',
           'video' => 'required',
           'body' => 'required'
         ]);
+
+        if($request->file('image')){
+          $validatedData['image'] = $request->file('image')->store('video-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 100);
@@ -109,6 +114,14 @@ class DashboardVideoController extends Controller
 
         $validatedData = $request->validate($rules);
 
+          //validasi gambar
+        if($request->file('image')){
+          if($request->oldImage){
+              Storage::delete($request->oldImage);
+          }
+          $validatedData['image'] = $request->file('image')->store('video-images');
+        }
+
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 100);
 
@@ -123,9 +136,12 @@ class DashboardVideoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Video $video)
-    {
-        Video::destroy($video->id);
-        return redirect('/dashboard/videos')->with('success', 'Video has been deleted!');
+    {   
+      if($video->image){
+          Storage::delete($video->image);
+      }
+      Video::destroy($video->id);
+      return redirect('/dashboard/videos')->with('success', 'Video has been deleted!');
     }
 
     public function checkSlug(Request $request){

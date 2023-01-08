@@ -20,6 +20,7 @@ class CreateVideosTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('video')->nullable();
+            $table->string('image')->nullable();
             $table->text('excerpt');
             $table->text('body');
             $table->timestamp('publish_at')->nullable();
