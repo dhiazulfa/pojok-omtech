@@ -27,26 +27,32 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'Magazine',
             'slug' => 'magazine'
-        ],
-        [
+        ]);
+
+        Category::create([
             'name' => 'Politik',
             'slug' => 'politik'
-        ],
-        [
-            'name' => 'Lifestyle',
-            'slug' => 'lifestyle'
-        ],
-        [
+        ]);
+
+        Category::create([
             'name' => 'Edukasi',
             'slug' => 'edukasi'
-        ],
-        [
+        ]);
+
+        Category::create([
+            'name' => 'Travel',
+            'slug' => 'travel'
+        ]);
+
+        Category::create([
             'name' => 'Ekonomi',
             'slug' => 'ekonomi'
-        ],
-        [
-            'name' => 'Travel',
-            'slug' => 'Travel'
         ]);
+
+        Category::create([
+            'name' => 'Lifestyle',
+            'slug' => 'lifestyle'
+        ]);
+
     }
 }

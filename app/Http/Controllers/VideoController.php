@@ -16,12 +16,20 @@ class VideoController extends Controller
 
         if(request('category')){
             $category = Category::firstWhere('slug', request('category'));
+            if(!$category){
+                abort(404,'Category Not Found!');
+            } else{
             $title = ' in ' . $category->name;
+            }
         }
 
         if(request('user')){
             $user = User::firstWhere('username', request('user'));
+            if(!$category){
+                abort(404,'Category Not Found!');
+            } else{
             $title = ' by ' . $user->name;
+            }
         }
 
         return view('videos', [
