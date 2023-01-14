@@ -18,12 +18,20 @@ class HomeController extends Controller
 
         if(request('category')){
             $category = Category::firstWhere('slug', request('category'));
+            if(!$category){
+                abort(404);
+            } else{
             $title = ' in ' . $category->name;
+            }
         }
 
         if(request('user')){
             $user = User::firstWhere('username', request('user'));
-            $title = ' by ' . $user->name;
+            if(!$user){
+                abort(404);
+            } else{
+            $title = ' in ' . $user->name;
+            }
         }
 
         return view('index', [
