@@ -45,7 +45,7 @@
 <main class="form-signin">
   <form action="/login" method="POST">
     @csrf
-    <img class="mb-4" src="/images/omtech.jpeg" alt="" width="230" height="230">
+    <img class="mb-4" src="/images/morgans.jpg" alt="" width="230" height="230">
     <h1 class="h3 mb-3 fw-normal">Silahkan Masuk</h1>
 
     <div class="form-floating">
@@ -58,7 +58,7 @@
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-    <p class="mt-5 mb-3 text-muted">&copy; Omah Technology Indonesia 2022</p>
+    <p class="mt-5 mb-3 text-muted">&copy; Adhiki Cahyacita Eknanda</p>
   </form>
 </main>
 

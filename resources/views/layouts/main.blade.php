@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pojok Omtech</title>
+    <title>Tugas Akhir</title>
     <!-- plugin css for this page -->
     <link
       rel="stylesheet"
@@ -64,7 +64,7 @@
               <div class="navbar-bottom">
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
-                    <a class="navbar-brand text-white" href="#">OMAHTECH.ID</a>
+                    <a class="navbar-brand text-white" href="#">MORGANS</a>
                   </div>
                   <div>
                     <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,7 +132,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-5">
-                  <b><a class="navbar-brand text-white" href="#">OMAHTECH.ID</a></b>
+                  <b><a class="navbar-brand text-white" href="#">MORGANS</a></b>
                   <h5 class="font-weight-normal mt-4 mb-5">
                     Newspaper is your news, entertainment, music fashion website. We
                     provide you with the latest breaking news and videos straight from
@@ -264,7 +264,7 @@
                       {{-- Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a> --}}
                     </div>
                     <div class="fs-14 font-weight-600">
-                      © 2022 <a href="https://www.omah-ti.com/" target="_blank" class="text-white"> Omah Technology Indonesia</a>. All rights reserved.
+                      © 2023 <a href="https://www.omah-ti.com/" target="_blank" class="text-white"> Adhiki Cahyacita Eknanda</a>. All rights reserved.
                     </div>
                   </div>
                 </div>
